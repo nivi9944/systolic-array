@@ -1,0 +1,24 @@
+{
+  "chip_16ns_acc32": {
+    "netlist": "openlane/runs/clk_16/final/nl/sa_top.nl.v (62.5 MHz chip)",
+    "N": 8,
+    "ACC_W": 32,
+    "random_matrices": 300,
+    "outputs_checked": 19200,
+    "element_mismatches": 0,
+    "matrices_with_mismatch": 0,
+    "sim_seconds": 226.7,
+    "models": "sky130_fd_sc_hd functional Verilog models, zero delay"
+  },
+  "chip_11ns_acc22": {
+    "netlist": "openlane/runs/clk_11p0s/final/nl/sa_top.nl.v (90.9 MHz chip)",
+    "N": 8,
+    "ACC_W": 22,
+    "random_matrices": 300,
+    "outputs_checked": 19200,
+    "element_mismatches": 0,
+    "matrices_with_mismatch": 0,
+    "sim_seconds": 398.6,
+    "models": "sky130_fd_sc_hd functional Verilog models, zero delay"
+  }
+}

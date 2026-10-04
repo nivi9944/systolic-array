@@ -1,0 +1,148 @@
+{
+  "mode": "sky130_fd_sc_hd",
+  "yosys": "Yosys 0.62",
+  "note_on_versions": "cell areas depend on the Yosys/ABC version; these match the LibreLane toolchain",
+  "liberty": "sky130_fd_sc_hd__tt_025C_1v80.lib",
+  "k_max": 64,
+  "min_safe_acc_w_for_k_max": 22,
+  "note": "ACC_W below min_safe_acc_w can overflow for worst-case inputs at K = K_MAX; the RTL clamps K to K_MAX so the safe width is a hard guarantee.",
+  "points": [
+    {
+      "N": 2,
+      "ACC_W": 20,
+      "PIPE": 1,
+      "cells": 2134,
+      "flip_flops": 245,
+      "synth_seconds": 1.5,
+      "area_um2": 19143.4
+    },
+    {
+      "N": 2,
+      "ACC_W": 22,
+      "PIPE": 1,
+      "cells": 2162,
+      "flip_flops": 253,
+      "synth_seconds": 1.4,
+      "area_um2": 19553.8
+    },
+    {
+      "N": 2,
+      "ACC_W": 24,
+      "PIPE": 1,
+      "cells": 2240,
+      "flip_flops": 261,
+      "synth_seconds": 1.5,
+      "area_um2": 20126.8
+    },
+    {
+      "N": 2,
+      "ACC_W": 32,
+      "PIPE": 1,
+      "cells": 2525,
+      "flip_flops": 293,
+      "synth_seconds": 1.5,
+      "area_um2": 22137.5
+    },
+    {
+      "N": 4,
+      "ACC_W": 20,
+      "PIPE": 1,
+      "cells": 8205,
+      "flip_flops": 949,
+      "synth_seconds": 3.5,
+      "area_um2": 73970.9
+    },
+    {
+      "N": 4,
+      "ACC_W": 22,
+      "PIPE": 1,
+      "cells": 8382,
+      "flip_flops": 981,
+      "synth_seconds": 3.7,
+      "area_um2": 75907.8
+    },
+    {
+      "N": 4,
+      "ACC_W": 24,
+      "PIPE": 1,
+      "cells": 8710,
+      "flip_flops": 1013,
+      "synth_seconds": 3.6,
+      "area_um2": 78362.7
+    },
+    {
+      "N": 4,
+      "ACC_W": 32,
+      "PIPE": 1,
+      "cells": 10043,
+      "flip_flops": 1141,
+      "synth_seconds": 4.1,
+      "area_um2": 85433.2
+    },
+    {
+      "N": 8,
+      "ACC_W": 20,
+      "PIPE": 1,
+      "cells": 32883,
+      "flip_flops": 3797,
+      "synth_seconds": 14.4,
+      "area_um2": 294668.9
+    },
+    {
+      "N": 8,
+      "ACC_W": 22,
+      "PIPE": 1,
+      "cells": 33584,
+      "flip_flops": 3925,
+      "synth_seconds": 14.4,
+      "area_um2": 302561.4
+    },
+    {
+      "N": 8,
+      "ACC_W": 24,
+      "PIPE": 1,
+      "cells": 34693,
+      "flip_flops": 4053,
+      "synth_seconds": 15.5,
+      "area_um2": 311726.5
+    },
+    {
+      "N": 8,
+      "ACC_W": 32,
+      "PIPE": 1,
+      "cells": 39862,
+      "flip_flops": 4565,
+      "synth_seconds": 17.0,
+      "area_um2": 340253.8
+    }
+  ],
+  "no_pipeline_reference": {
+    "N": 8,
+    "ACC_W": 32,
+    "PIPE": 0,
+    "cells": 35288,
+    "flip_flops": 3541,
+    "synth_seconds": 18.2,
+    "area_um2": 318282.8
+  },
+  "right_sizing_savings": {
+    "N2": {
+      "metric": "area_um2",
+      "acc32": 22137.5,
+      "acc22": 19553.8,
+      "saved_pct": 11.7
+    },
+    "N4": {
+      "metric": "area_um2",
+      "acc32": 85433.2,
+      "acc22": 75907.8,
+      "saved_pct": 11.1
+    },
+    "N8": {
+      "metric": "area_um2",
+      "acc32": 340253.8,
+      "acc22": 302561.4,
+      "saved_pct": 11.1
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "source": "OpenROAD/OpenSTA power report at signoff, nominal corner (tt, 25C, 1.80V)",
+  "activity": "vectorless: default switching activity assumed by the tool, no simulation VCD",
+  "label": "estimated",
+  "clock_mhz": 90.91,
+  "power_mw": 34.978,
+  "internal_mw": 26.531,
+  "switching_mw": 8.446,
+  "leakage_mw": 0.000891,
+  "peak_gops": 11.636,
+  "gops_per_w_at_peak": 332.7
+}
