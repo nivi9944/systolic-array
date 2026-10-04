@@ -1,0 +1,1 @@
+{"target": "pe", "method": "yosys sat -tempinduct", "properties": 4, "proven": true}

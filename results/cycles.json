@@ -1,0 +1,122 @@
+{
+  "systolic_N8": {
+    "K8": {
+      "cycles": 35,
+      "macs": 512,
+      "macs_per_cycle": 14.629,
+      "utilization_pct": 22.86,
+      "mac_units": 64
+    },
+    "K16": {
+      "cycles": 43,
+      "macs": 1024,
+      "macs_per_cycle": 23.814,
+      "utilization_pct": 37.21,
+      "mac_units": 64
+    },
+    "K64": {
+      "cycles": 91,
+      "macs": 4096,
+      "macs_per_cycle": 45.011,
+      "utilization_pct": 70.33,
+      "mac_units": 64
+    }
+  },
+  "systolic_N2": {
+    "K8": {
+      "cycles": 17,
+      "macs": 32,
+      "macs_per_cycle": 1.882,
+      "utilization_pct": 47.06,
+      "mac_units": 4
+    },
+    "K16": {
+      "cycles": 25,
+      "macs": 64,
+      "macs_per_cycle": 2.56,
+      "utilization_pct": 64.0,
+      "mac_units": 4
+    },
+    "K64": {
+      "cycles": 73,
+      "macs": 256,
+      "macs_per_cycle": 3.507,
+      "utilization_pct": 87.67,
+      "mac_units": 4
+    }
+  },
+  "systolic_N4": {
+    "K8": {
+      "cycles": 23,
+      "macs": 128,
+      "macs_per_cycle": 5.565,
+      "utilization_pct": 34.78,
+      "mac_units": 16
+    },
+    "K16": {
+      "cycles": 31,
+      "macs": 256,
+      "macs_per_cycle": 8.258,
+      "utilization_pct": 51.61,
+      "mac_units": 16
+    },
+    "K64": {
+      "cycles": 79,
+      "macs": 1024,
+      "macs_per_cycle": 12.962,
+      "utilization_pct": 81.01,
+      "mac_units": 16
+    }
+  },
+  "systolic_N8_P0I0": {
+    "K8": {
+      "cycles": 33,
+      "macs": 512,
+      "macs_per_cycle": 15.515,
+      "utilization_pct": 24.24,
+      "mac_units": 64
+    },
+    "K16": {
+      "cycles": 41,
+      "macs": 1024,
+      "macs_per_cycle": 24.976,
+      "utilization_pct": 39.02,
+      "mac_units": 64
+    },
+    "K64": {
+      "cycles": 89,
+      "macs": 4096,
+      "macs_per_cycle": 46.022,
+      "utilization_pct": 71.91,
+      "mac_units": 64
+    }
+  },
+  "baseline_N8": {
+    "K8": {
+      "cycles": 530,
+      "macs": 512,
+      "macs_per_cycle": 0.966,
+      "utilization_pct": 96.6,
+      "mac_units": 1
+    },
+    "K16": {
+      "cycles": 1050,
+      "macs": 1024,
+      "macs_per_cycle": 0.975,
+      "utilization_pct": 97.52,
+      "mac_units": 1
+    },
+    "K64": {
+      "cycles": 4170,
+      "macs": 4096,
+      "macs_per_cycle": 0.982,
+      "utilization_pct": 98.23,
+      "mac_units": 1
+    }
+  },
+  "speedup_N8": {
+    "K8": 15.14,
+    "K16": 24.42,
+    "K64": 45.82
+  }
+}

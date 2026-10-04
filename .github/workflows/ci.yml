@@ -1,0 +1,52 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install simulators and synthesis
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog verilator yosys
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Verilator lint
+        run: |
+          for n in 2 4 8; do
+            for w in 22 32; do
+              verilator --lint-only -Wall -GN=$n -GACC_W=$w --top-module sa_top \
+                rtl/pe.v rtl/skew.v rtl/systolic_array.v rtl/controller.v rtl/sa_top.v
+            done
+          done
+          verilator --lint-only -Wall --top-module seq_mac_baseline rtl/seq_mac_baseline.v
+
+      - name: Formal proof of the PE
+        run: |
+          for cfg in "1 1 22" "0 0 32"; do
+            set -- $cfg
+            yosys -q -p "read_verilog -formal rtl/pe.v formal/pe_formal.v; \
+              chparam -set PIPE $1 -set ISO $2 -set ACC_W $3 pe_formal; prep -top pe_formal; \
+              flatten; async2sync; sat -tempinduct -prove-asserts -set-init-zero -seq 1 -verify"
+          done
+
+      - name: cocotb tests (reduced random count)
+        env:
+          RESULTS_DIR: ${{ runner.temp }}/results
+        run: |
+          make -C tb TB=pe ACC_W=22
+          make -C tb TB=sa_top N=4 ACC_W=22 NUM_RANDOM=500
+          make -C tb TB=sa_top N=8 ACC_W=22 NUM_RANDOM=500
+          make -C tb TB=baseline N=4 NUM_RANDOM=50
+          ! grep -l "<failure" tb/sim_build/*/results.xml

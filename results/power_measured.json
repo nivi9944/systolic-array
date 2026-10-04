@@ -1,0 +1,42 @@
+{
+  "run_dir": "openlane/runs/clk_11p0s",
+  "corner": "nom_tt_025C_1v80 (typical, 25C, 1.80V), nominal parasitics",
+  "clock_mhz": 90.91,
+  "workload": "back-to-back K = 64 jobs of uniform random INT8 data at full throughput",
+  "activity_source": "gate-level simulation VCD of the routed netlist (read_vcd)",
+  "power_mw": 92.6,
+  "groups_mw": {
+    "Sequential": 25.7,
+    "Combinational": 50.8,
+    "Clock": 16.2
+  },
+  "internal_mw": 49.8,
+  "switching_mw": 42.8,
+  "leakage_mw": 0.000874,
+  "default_activity_power_mw": 35.0,
+  "peak_gops": 11.636,
+  "gops_per_w_at_peak": 125.7,
+  "energy_pj_per_mac_at_peak": 15.92,
+  "annotated_pin_activities": 232249,
+  "vs_62p5MHz_chip": {
+    "energy_pj_per_mac": [
+      13.17,
+      15.92
+    ],
+    "energy_per_cycle_nj_by_group": {
+      "Sequential": [
+        0.2528,
+        0.2827
+      ],
+      "Combinational": [
+        0.4224,
+        0.5588
+      ],
+      "Clock": [
+        0.1664,
+        0.1782
+      ]
+    },
+    "note": "[62.5 MHz chip, 90.9 MHz chip], same workload and method; 62.5 MHz data in clock_sweep.json previous_design_62p5MHz.measured_power"
+  }
+}

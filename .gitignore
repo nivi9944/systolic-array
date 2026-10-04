@@ -1,0 +1,16 @@
+# simulation
+tb/sim_build/
+tb/results.xml
+__pycache__/
+*.pyc
+*.vcd
+*.fst
+*.vvp
+# synthesis scratch
+synth/out/
+# LibreLane runs are large: only openlane/final/ (signoff reports) is kept
+openlane/runs/
+openlane/config_clk_*.json
+# local environments
+.venv/
+.vscode/

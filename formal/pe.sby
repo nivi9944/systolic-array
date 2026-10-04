@@ -1,0 +1,19 @@
+# SymbiYosys proof of the PE properties in pe_formal.v (unbounded, k-induction).
+#   cd formal && sby -f pe.sby
+[options]
+mode prove
+depth 4
+
+[engines]
+smtbmc boolector
+
+[script]
+read_verilog -formal pe.v
+read_verilog -formal pe_formal.v
+prep -top pe_formal
+flatten
+async2sync
+
+[files]
+../rtl/pe.v
+pe_formal.v

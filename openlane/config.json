@@ -1,0 +1,50 @@
+{
+  "DESIGN_NAME": "sa_top",
+  "VERILOG_FILES": [
+    "dir::../rtl/pe.v",
+    "dir::../rtl/skew.v",
+    "dir::../rtl/systolic_array.v",
+    "dir::../rtl/controller.v",
+    "dir::../rtl/sa_top.v"
+  ],
+  "SYNTH_PARAMETERS": [
+    "N=8",
+    "ACC_W=22",
+    "K_MAX=64",
+    "KW=7",
+    "PIPE=1",
+    "ISO=1"
+  ],
+  "CLOCK_PORT": "clk",
+  "CLOCK_PERIOD": 11.0,
+  "FP_SIZING": "relative",
+  "FP_CORE_UTIL": 40,
+  "PL_TARGET_DENSITY_PCT": 50,
+  "IO_PIN_ORDER_CFG": "dir::pin_order.cfg",
+  "DESIGN_REPAIR_MAX_WIRE_LENGTH": 400,
+  "GRT_DESIGN_REPAIR_MAX_WIRE_LENGTH": 400,
+  "RUN_POST_GRT_DESIGN_REPAIR": true,
+  "RUN_POST_GRT_RESIZER_TIMING": true,
+  "SYNTH_STRATEGY": "DELAY 2",
+  "EXTRA_EXCLUDED_CELLS": [
+    "sky130_fd_sc_hd__clkdlybuf4s15_1",
+    "sky130_fd_sc_hd__clkdlybuf4s15_2",
+    "sky130_fd_sc_hd__clkdlybuf4s18_1",
+    "sky130_fd_sc_hd__clkdlybuf4s18_2",
+    "sky130_fd_sc_hd__clkdlybuf4s25_1",
+    "sky130_fd_sc_hd__clkdlybuf4s25_2",
+    "sky130_fd_sc_hd__clkdlybuf4s50_1",
+    "sky130_fd_sc_hd__clkdlybuf4s50_2",
+    "sky130_fd_sc_hd__dlymetal6s2s_1",
+    "sky130_fd_sc_hd__dlymetal6s4s_1",
+    "sky130_fd_sc_hd__dlymetal6s6s_1",
+    "sky130_fd_sc_hd__buf_1",
+    "sky130_fd_sc_hd__clkbuf_1",
+    "sky130_fd_sc_hd__dlygate4sd1_1",
+    "sky130_fd_sc_hd__dlygate4sd2_1",
+    "sky130_fd_sc_hd__dlygate4sd3_1"
+  ],
+  "IO_DELAY_CONSTRAINT": 34.1,
+  "PL_RESIZER_SETUP_SLACK_MARGIN": 1.0,
+  "GRT_RESIZER_SETUP_SLACK_MARGIN": 1.5
+}
