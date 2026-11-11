@@ -63,6 +63,7 @@ def main():
     g_act, out_act, anno = run_sta(args.run_dir, args.vcd, args.scope)
     g_def, _, _ = run_sta(args.run_dir, None, args.scope)
     f_mhz = 1000.0 / args.period
+    # 8x8 array: 64 MACs per cycle, counted as 2 ops each.
     peak_gops = 2 * 64 * f_mhz / 1000.0
     total = g_act["Total"][3]
     res = {

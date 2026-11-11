@@ -27,7 +27,7 @@ step() { printf '\n==== %s ====\n' "$1"; }
 step "1/6 Verilator lint (-Wall) for N in {2,4,8}, ACC_W in {20,22,24,32}"
 for n in 2 4 8; do
   for w in 20 22 24 32; do
-    for cfg in "1 1" "0 0"; do
+    for cfg in "1 1" "0 0"; do   # PIPE ISO: chip configuration, single-cycle MAC
       set -- $cfg
       verilator --lint-only -Wall -GN=$n -GACC_W=$w -GPIPE=$1 -GISO=$2 --top-module sa_top $RTL
     done

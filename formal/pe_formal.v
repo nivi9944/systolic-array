@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // pe_formal.v : formal property wrapper for rtl/pe.v
 //
-// Proves, for every possible input sequence (not just random samples):
+// Proves the following for every possible input sequence:
 //   P1 pass-through : a_out and b_out equal a_in and b_in of the previous cycle
 //   P2 shift        : a shift loads acc_in of the previous cycle
 //   P3 MAC          : otherwise acc = previous acc + signed(a_in) * signed(b_in)

@@ -28,9 +28,9 @@ module systolic_array #(
     output wire [N*ACC_W-1:0]    acc_top    // accumulators of row 0, lane j = column j
 );
 
-    // Links between neighbouring PEs, kept as arrays of small wires (one per PE
-    // port) rather than one wide flat bus: simulators and synthesis handle this
-    // far better than thousands of part-selects on a single net.
+    // Links between neighbouring PEs, one small wire per PE port. Simulators and
+    // synthesis handle these arrays far better than thousands of part-selects
+    // on one wide flat bus.
     //   a_link[i*(N+1)+j] : A value entering PE(i,j) from the left (j = N: unused)
     //   b_link[i*N+j]     : B value entering PE(i,j) from the top  (i = N: unused)
     //   acc_link[i*N+j]   : accumulator of PE(i,j); row N is a zero row that is

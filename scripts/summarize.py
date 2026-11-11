@@ -171,7 +171,7 @@ def build_rows(ver, cycles, synth, ol, power, thr, formal, pm=None, gls=None):
         rows.append(("Peak / effective (K = 64) throughput",
                      f"{thr['peak_gops']} / {thr['effective_gops'].get('K64', 'n/a')} GOPS", "throughput.json"))
     if gls:
-        # the chip in openlane.json is the one whose netlist was simulated
+        # Report the GLS entry whose netlist came from the run in openlane.json.
         want = (ol or {}).get('run_dir', '')
         key = next((k for k, v in gls.items() if want and want in v.get('netlist', '')), None)
         g = gls.get(key or sorted(gls)[-1])

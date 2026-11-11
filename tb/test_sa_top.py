@@ -6,6 +6,7 @@ Environment knobs (set by tb/Makefile):
   SEED              random seed (default 2027)
   DESIGN            name used in results files ("systolic" or "baseline")
   PIPE              1 = product register in each PE (default), 0 = single-cycle MAC
+  ISO               1 = separate multiplier operand copy in each PE (default), 0 = none
 """
 
 import os
@@ -85,6 +86,7 @@ async def test_directed(dut):
     dut._log.info("PASS empty_job_k0")
 
     # K larger than K_MAX is clamped: only K_MAX beats are accepted.
+    # 127 is the largest value the 7-bit k_len port can carry.
     k_big = min(K_MAX + 5, (1 << 7) - 1)
     a = random_int8(rng, (N, k_big))
     b = random_int8(rng, (k_big, N))

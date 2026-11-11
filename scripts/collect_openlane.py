@@ -101,8 +101,11 @@ def rel(d):
 
 
 def summarize_run(run_dir, period_ns=None, n=8, stage_dirs=()):
-    """stage_dirs: earlier runs of the same chip when the flow was resumed in stages
-    (their step reports are searched when a report is not in run_dir)."""
+    """Collect the timing, area, DRC/LVS and power metrics of one run.
+
+    stage_dirs lists earlier runs of the same chip when the flow was resumed in
+    stages; their step reports are searched when a report is not in run_dir.
+    """
     m, path = load_metrics(run_dir)
     period_ns = period_ns or read_config_period(run_dir)
     used = {}

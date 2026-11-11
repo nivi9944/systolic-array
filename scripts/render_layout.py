@@ -15,7 +15,7 @@ width = int(globals().get("width", 1600))
 zoom = globals().get("zoom")
 cells = str(globals().get("cells", "0")) == "1"
 
-# (layer, datatype): (fill colour, frame colour)
+# ((layer, datatype), colour); the same colour is used for fill and frame
 ROUTING = [
     ((68, 20), 0x3987E5),   # met1
     ((69, 20), 0x1BAF7A),   # met2

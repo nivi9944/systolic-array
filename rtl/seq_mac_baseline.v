@@ -1,13 +1,13 @@
 // -----------------------------------------------------------------------------
 // seq_mac_baseline.v : single multiply-accumulate baseline, C = A x B
 //
-// Same ports and stream format as sa_top, but only ONE MAC unit:
+// Same ports and stream format as sa_top, with a single MAC unit:
 //   LOAD    : store the K input beats in local buffers (K cycles)
 //   COMPUTE : for i, for j, for k: acc += A[i][k] * B[k][j] (N*N*K cycles)
 //   DRAIN   : output C one row per handshake (N cycles)
 //
-// It exists only to measure the speedup of the systolic array in simulation,
-// so it is written for clarity, not for area.
+// It is used only to measure the speedup of the systolic array in simulation,
+// so it is written for readability and is not area-optimised.
 // -----------------------------------------------------------------------------
 module seq_mac_baseline #(
     parameter N      = 8,
@@ -51,7 +51,8 @@ module seq_mac_baseline #(
     reg [N*DATA_W-1:0]   b_mem [0:(1<<KW)-1]; // b_mem[k] = row k of B
     reg [N*N*ACC_W-1:0]  c_flat;            // C[i][j] at (i*N+j)*ACC_W
 
-    // The single MAC datapath.
+    // The single MAC datapath. k_idx == 0 starts a new dot product, so the
+    // sum restarts from zero there and acc never needs a separate clear.
     wire [N*DATA_W-1:0]      a_word = a_mem[k_idx];
     wire [N*DATA_W-1:0]      b_word = b_mem[k_idx];
     wire signed [DATA_W-1:0] a_s    = a_word[i_idx*DATA_W +: DATA_W];

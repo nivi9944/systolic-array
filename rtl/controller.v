@@ -86,7 +86,7 @@ module controller #(
     reg [KW-1:0] k_reg, k_nx;
     reg          s_ready_q;   // s_ready
     reg          valid_q;     // m_valid pin
-    reg          shift_q;     // array shift (same value as valid_q)
+    reg          shift_q;     // array shift: valid_q, and also high in IDLE
     reg          last_q;      // m_last
     reg          busy_q;      // busy pin
     reg          done_q;      // done pin
@@ -110,8 +110,8 @@ module controller #(
             S_IDLE: begin
                 cnt_nx = {CW{1'b0}};
                 if (start) begin
-                    // K is clamped to K_MAX: the accumulator width is sized
-                    // for at most K_MAX products, so longer jobs are refused.
+                    // Clamp K to K_MAX: the accumulator width is sized for at
+                    // most K_MAX products, so a longer job takes only K_MAX beats.
                     k_nx = (k_len > K_MAX[KW-1:0]) ? K_MAX[KW-1:0] : k_len;
                     // K = 0 is a legal (empty) job: results are all zero.
                     state_nx = (k_len == {KW{1'b0}}) ? S_FLUSH : S_STREAM;

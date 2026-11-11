@@ -67,7 +67,7 @@ module pe #(
         end
     endgenerate
 
-    // Signed multiply: both operands must be declared signed for $signed math.
+    // Both operands must be signed wires, or Verilog does an unsigned multiply.
     wire signed [DATA_W-1:0] a_s  = a_mul;
     wire signed [DATA_W-1:0] b_s  = b_mul;
     wire signed [PROD_W-1:0] prod = a_s * b_s;

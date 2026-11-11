@@ -53,8 +53,8 @@ async def run_job(dut, a, b, k_len=None, p_bubble=0.0, p_stall=0.0, rng=None,
     """Run one job. a is N x K, b is K x N. Returns (C as np.int64 array, cycles, beats).
 
     k_len defaults to K (the number of columns of a). If k_len is larger than
-    the hardware K_MAX, the DUT clamps it and only accepts K_MAX beats; we keep
-    offering beats and count how many were really accepted.
+    the hardware K_MAX, the DUT clamps it and only accepts K_MAX beats; the
+    driver keeps offering beats and counts how many were really accepted.
     """
     rng = rng or np.random.default_rng()
     a = np.asarray(a)
@@ -75,6 +75,7 @@ async def run_job(dut, a, b, k_len=None, p_bubble=0.0, p_stall=0.0, rng=None,
     dut.s_valid.value = 0
     dut.m_ready.value = 0
     while True:
+        # Sample this cycle's handshakes once all signals have settled.
         await ReadOnly()
         cycles += 1
         s_fire = int(dut.s_valid.value) and int(dut.s_ready.value)

@@ -40,6 +40,7 @@ def find_liberty():
 
 
 def min_safe_acc_w(k):
+    # Worst case is (-128) * (-128) * K = K * 2^14, which must fit a signed width.
     worst_pos = k * (1 << 14)
     w = 2
     while worst_pos > (1 << (w - 1)) - 1:
@@ -59,6 +60,7 @@ def run_point(n, acc_w, lib, pipe=1):
     stat = json.loads((ROOT / "synth" / "out" / f"sa_top_N{n}_ACC{acc_w}_P{pipe}.stat.json").read_text())
     mod = next(iter(stat["modules"].values()))
     cells = mod["num_cells_by_type"]
+    # Flip-flops: generic Yosys DFF cells or the Sky130 HD flop cells.
     dffs = sum(v for k, v in cells.items() if "DFF" in k.upper() or "dfrtp" in k or "dfxtp" in k
                or "edfxtp" in k or "dfstp" in k)
     point = {
